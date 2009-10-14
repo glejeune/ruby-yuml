@@ -44,13 +44,26 @@ module YUML
     end
     
     # Create a decision in an Activity Diagram
-    def decision(x, label = "")
-      @decisions["#{x}|#{label}"] ||= Decision.new( self, x, label )
+    def decision(x)
+      @decisions[x] ||= Decision.new( self, x )
     end
     
     # Create a parallel in an Activity Diagram
     def parallel(x)
       @parallels[x] ||= Parallel.new( self, x )
     end
+    
+    def _(x=nil, &b)
+      if x.nil?
+        if b
+          decision(b.call)
+        else
+          Parallel.new(self, nil)
+        end
+      else
+        activity(x)
+      end
+    end
+    
   end
 end

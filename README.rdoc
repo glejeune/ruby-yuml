@@ -23,12 +23,12 @@ Capcode is a web microframework
   require 'yuml'
 
   YUML::useCaseDiagram( :scruffy, :scale => 75 ) {
-    actor(:Admin) ^ actor(:User)
-    actor(:Admin) - note( 'Most privilidged user' )
-    actor(:User) - useCase(:Login)
-    actor(:User) - useCase(:Logout) 
-    useCase(:Login) < useCase(:Reminder) 
-    useCase(:Login) > useCase(:Captcha)
+    _[:Admin] ^ _[:User]
+    _[:Admin] - note( 'Most privilidged user' )
+    _[:User] - _(:Login)
+    _[:User] - _(:Logout) 
+    _(:Login) < _(:Reminder) 
+    _(:Login) > _(:Captcha)
   }.to_png( "sample.png" )
 
 This example generate this PNG :

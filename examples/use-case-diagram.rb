@@ -2,12 +2,12 @@ $:.unshift( "../lib" )
 require 'yuml'
 
 x = YUML::useCaseDiagram( :scruffy, :scale => 75 ) {
-  actor(:Admin) ^ actor(:User)
-  actor(:Admin) - note( 'Most privilidged user' )
-  actor(:User) - useCase(:Login)
-  actor(:User) - useCase(:Logout) 
-  useCase(:Login) < useCase(:Reminder) 
-  useCase(:Login) > useCase(:Captcha)
+  _[:Admin] ^ _[:User]
+  _[:Admin] - note( 'Most privilidged user' )
+  _[:User] - _(:Login)
+  _[:User] - _(:Logout) 
+  _(:Login) < _(:Reminder) 
+  _(:Login) > _(:Captcha)
 }
 
 puts "To String :"

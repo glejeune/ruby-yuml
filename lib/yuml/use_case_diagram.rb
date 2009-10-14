@@ -41,6 +41,14 @@ module YUML
     # Create a new note in a Use Case Diagram
     def note(x)
       @notes[x] ||= Note.new( self, x )
-    end    
+    end
+    
+    def _(x=nil)
+      if x.nil?
+        Actor.new(self, nil)
+      else
+        useCase(x)
+      end
+    end
   end
 end

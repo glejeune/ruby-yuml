@@ -2,12 +2,12 @@ $:.unshift( "../lib" )
 require 'yuml'
 
 x = YUML::activityDiagram( :scruffy, :scale => 100 ) {
-  _start_ > decision(:d1)
-  decision(:d1, "logged in") > activity("Show Dashboard") 
-  activity("Show Dashboard") > parallel(:a)
-  parallel(:a) > _end_
-  decision(:d1, "not logged in") > activity("Show Login") 
-  activity("Show Login") > parallel(:a)
+  _(:start) > _{:d1}
+  _{:d1} > _("Show Dashboard") 
+  _("Show Dashboard") > _[:a]
+  _[:a] > _(:end)
+  _{:d1} > _("Show Login") 
+  _("Show Login") > _[:a]
 }
 
 puts "To String :"

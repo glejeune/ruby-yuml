@@ -26,6 +26,11 @@ module YUML
     def to_s #:nodoc:
       "[#{@name.to_s}]"
     end
+    
+    def [](x)
+      @name = x
+      return self
+    end
   end
   
   class UseCase < UseCaseEntity
