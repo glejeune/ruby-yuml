@@ -1,0 +1,36 @@
+= Ruby/yUML
+
+Copyright (C) 2009 Gregoire Lejeune
+
+* home : http://github.com/glejeune/ruby-yuml
+* doc : http://rdoc.info/projects/glejeune/ruby-yuml
+  
+== DESCRIPTION: 
+
+Capcode is a web microframework
+
+== FEATURES/PROBLEMS:
+
+=== 0.1.0
+* Initial release
+
+== SYNOPSIS:
+
+  # file: sample.rb
+  
+== REQUIREMENTS:
+
+* An internet acces ;)
+
+== INSTALL:
+
+  sudo gem install ruby-yuml
+
+== LICENSE:
+
+Ruby/yUML is freely distributable according to the terms of the
+GNU General Public License.
+
+This program is distributed without any warranty. See the file
+'COPYING' for details.
+
