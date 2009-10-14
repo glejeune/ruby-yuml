@@ -16,8 +16,35 @@ Capcode is a web microframework
 
 == SYNOPSIS:
 
+=== Use Case Diagram
+
   # file: sample.rb
-  
+  require 'rubygems'
+  require 'yuml'
+
+  YUML::useCaseDiagram( :scruffy, :scale => 75 ) {
+    actor(:Admin) ^ actor(:User)
+    actor(:Admin) - note( 'Most privilidged user' )
+    actor(:User) - useCase(:Login)
+    actor(:User) - useCase(:Logout) 
+    useCase(:Login) < useCase(:Reminder) 
+    useCase(:Login) > useCase(:Captcha)
+  }.to_png( "sample.png" )
+
+This example generate this PNG :
+
+http://gregoire.lejeune.free.fr/use-case-diagram.png
+
+=== Activity Diagram
+
+  # file: sample.rb
+  # TODO
+
+=== Class Diagram
+
+  # file: sample.rb
+  # TODO
+
 == REQUIREMENTS:
 
 * An internet acces ;)
