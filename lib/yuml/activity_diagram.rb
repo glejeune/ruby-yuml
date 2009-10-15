@@ -1,3 +1,5 @@
+require 'yuml/diagram'
+
 module YUML
   # Create a new Activity Diagram
   def self.activityDiagram( *options, &block )
@@ -34,12 +36,12 @@ module YUML
     end
     
     # Create a start in a Activity Diagram
-    def _start_
+    def _start
       @activities[:Start] ||= Activity.new( self, :Start )
     end
 
     # Create a end in a Activity Diagram
-    def _end_
+    def _end
       @activities[:End] ||= Activity.new( self, :End )
     end
     
@@ -53,6 +55,11 @@ module YUML
       @parallels[x] ||= Parallel.new( self, x )
     end
     
+    # Create an activity, a parallel or a decision :
+    #
+    #   _("Activity") == activity("Activity")
+    #   _["Parallel"] == parallel("Parallel")
+    #   _{"Decision"} == decision("Decision")
     def _(x=nil, &b)
       if x.nil?
         if b

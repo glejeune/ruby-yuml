@@ -1,10 +1,6 @@
-require 'yuml/diagram'
-
-require 'yuml/use_case_entities'
-require 'yuml/use_case_diagram'
-
-require 'yuml/activity_entities'
-require 'yuml/activity_diagram'
+require 'yuml/use_case'
+require 'yuml/activity'
+require 'yuml/class'
 
 require 'net/http'
 

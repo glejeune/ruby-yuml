@@ -1,11 +1,13 @@
+require 'yuml/diagram'
+
 module YUML
   # Create a new Use Case Diagram
   def self.useCaseDiagram( *options, &block )
     UseCaseDiagram.new( *options, &block )
   end
   
-  # Create a new Use Case Diagram
   class UseCaseDiagram < Diagram
+    # Create a new Use Case Diagram
     def initialize( *options, &block )
       @options = {
         :diagram => "usecase"
@@ -43,6 +45,10 @@ module YUML
       @notes[x] ||= Note.new( self, x )
     end
     
+    # Create a new actor or use case in a Use Case Diagram
+    #
+    #   _("Use Case") == useCase("Use Case")
+    #   _["Actor"] == actor("Actor")
     def _(x=nil)
       if x.nil?
         Actor.new(self, nil)

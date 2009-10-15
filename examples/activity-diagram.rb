@@ -3,10 +3,10 @@ require 'yuml'
 
 x = YUML::activityDiagram( :scruffy, :scale => 100 ) {
   _(:start) > _{:d1}
-  _{:d1} > _("Show Dashboard") 
+  _{:d1} -"logged in"> _("Show Dashboard") 
   _("Show Dashboard") > _[:a]
   _[:a] > _(:end)
-  _{:d1} > _("Show Login") 
+  _{:d1} -"not logged in"> _("Show Login") 
   _("Show Login") > _[:a]
 }
 

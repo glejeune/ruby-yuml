@@ -18,6 +18,18 @@ Capcode is a web microframework
 
 === Use Case Diagram
 
+==== Syntax Overview
+
+* Use Case : <b><tt>_(:UseCase)</tt></b> or <tt><b>useCase(:UseCase)</b></tt>
+* Actor : <b><tt>_[:Actor]</tt></b> or <tt><b>actor(:Actor)</b></tt>
+* <<Extend>> : <tt>_(:UseCase) <b><</b> _(:OtherUseCase)</tt>
+* <<Include>> : <tt>_(:UseCase) <b>></b> _(:OtherUseCase)</tt>
+* Link : <tt>_[:Actor] <b>-</b> _(:UseCase)</tt>
+* Actor Inheritance : <tt>_[:Actor] <b>^</b> _[:OtherActor]</tt>
+* Notes : <tt>_(:UseCase) <b>- note('This is a note')</b></tt>
+
+==== Example
+
   # file: sample.rb
   require 'rubygems'
   require 'yuml'
@@ -37,8 +49,34 @@ http://gregoire.lejeune.free.fr/use-case-diagram.png
 
 === Activity Diagram
 
+==== Syntax Overview
+
+* Start : <b><tt>_(:start)</tt></b> or <tt><b>_start</b></tt> or <tt><b>activity(:start)</b></tt>
+* End : <b><tt>_(:end)</tt></b> or <tt><b>_end</b></tt> or <tt><b>activity(:end)</b></tt>
+* Activity : <tt><b>_(:Activity)</b></tt> or <tt><b>activity(:Activity)</b></tt>
+* Flow : <tt>_(:A) <b>></b> _(:B)</tt>
+* Decision : <tt><b>_{:Decision}</b></tt> or <tt><b>decision(:Decision)</b></tt>
+* Parallel : <tt><b>_[:Parallel]</b></tt> or <tt><b>parallel(:Parallel)</b></tt>
+* Decision with label : <tt>_{:Decision} <b>-"label"></b> _(:Activity)</tt>
+
+==== Example
+
   # file: sample.rb
-  # TODO
+  require 'rubygems'
+  require 'yuml'
+
+  YUML::activityDiagram( :scruffy, :scale => 100 ) {
+    _(:start) > _{:d1}
+    _{:d1} -"logged in"> _("Show Dashboard") 
+    _("Show Dashboard") > _[:a]
+    _[:a] > _(:end)
+    _{:d1} -"not logged in"> _("Show Login") 
+    _("Show Login") > _[:a]
+  }.to_png( "activity-diagram.png" )
+
+This example generate this PNG :
+
+http://gregoire.lejeune.free.fr/activity-diagram.png
 
 === Class Diagram
 
