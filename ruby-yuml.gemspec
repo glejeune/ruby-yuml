@@ -11,7 +11,7 @@ RDOC_OPTS = ['--quiet', '--title', "Ruby-yUML, the Documentation",
   "--inline-source"]
 
 Gem::Specification.new do |gem|
-  gem.name          = "Ruby-yUML"
+  gem.name          = "ruby-yuml"
   gem.version       = YUML::VERSION
   gem.authors       = ["Grégoire Lejeune"]
   gem.email         = ["gregoire.lejeune@free.fr"]
