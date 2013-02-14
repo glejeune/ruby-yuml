@@ -7,7 +7,7 @@ Copyright (C) 2009 Gregoire Lejeune
   
 == DESCRIPTION: 
 
-Capcode is a web microframework
+Ruby/yUML is a UML diagrams generator via yuml.me
 
 == FEATURES/PROBLEMS:
 
