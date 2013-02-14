@@ -18,7 +18,8 @@ module YUML
     #
     #   _("Activity One") > _("Activity Two")
     def >(other)
-      @uc.link( self, other, "#{@link_label}->" )
+      text = YUML.trim(@link_label)
+      @uc.link( self, other, "#{text}->" )
       @link_label = ""
     end
   end
