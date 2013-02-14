@@ -25,13 +25,15 @@ module YUML
   
   class Activity < ActivityEntity #:nodoc:
     def to_s #:nodoc:
-      "(#{@name.to_s})"
+      text = YUML.trim(@name.to_s)
+      "(#{text})"
     end
   end
   
   class Parallel < ActivityEntity #:nodoc:
     def to_s #:nodoc:
-      "|#{@name.to_s}|"
+      text = YUML.trim(@name.to_s)
+      "|#{text}|"
     end
     
     def [](x) #:nodoc
@@ -41,7 +43,8 @@ module YUML
   
   class Decision < ActivityEntity #:nodoc:
     def to_s #:nodoc:
-      "<#{@name.to_s}>"
+      text = YUML.trim(@name.to_s)
+      "<#{text}>"
     end
   end  
 end

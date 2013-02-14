@@ -36,7 +36,8 @@ module YUML
   
   class Actor < UseCaseEntity #:nodoc:
     def to_s #:nodoc:
-      "[#{@name.to_s}]"
+      text = YUML.trim(@name.to_s)
+      "[#{text}]"
     end
     
     def [](x) #:nodoc:
@@ -46,13 +47,15 @@ module YUML
   
   class UseCase < UseCaseEntity #:nodoc:
     def to_s #:nodoc:
-      "(#{@name.to_s})"
+      text = YUML.trim(@name.to_s)
+      "(#{text})"
     end
   end
   
   class Note < UseCaseEntity #:nodoc:
     def to_s #:nodoc:
-      "(note: #{@name.to_s})"
+      text = YUML.trim(@name.to_s)
+      "(note: #{text})"
     end
   end
 end
