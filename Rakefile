@@ -1,5 +1,5 @@
 require 'rake/clean'
-# require 'rake/gempackagetask' #rubygems/package_task'
+# require 'rubygems/package_task'
 require 'rdoc/task'
 require 'rake/testtask'
 
@@ -7,6 +7,7 @@ require 'bundler/gem_tasks'
 # require 'rspec/core/rake_task'
 
 Bundler::GemHelper.install_tasks
+CLOBBER.include('pkg', 'doc', '**/*.o')
 
 task :default => [:package]
 
