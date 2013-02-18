@@ -30,6 +30,7 @@ Gem::Specification.new do |gem|
   gem.rubyforge_project = 'ruby-yuml'
 
   gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'bundler'
   gem.add_development_dependency 'rdoc'
 end
