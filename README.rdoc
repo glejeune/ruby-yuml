@@ -89,7 +89,12 @@ http://gregoire.lejeune.free.fr/activity-diagram.png
 
 == INSTALL:
 
-  sudo gem install ruby-yuml
+Currently gem is not published on ruby-gems, so to install it use  specific_install
+
+  gem install specific_install
+  gem specific_install -l https://github.com/xslim/ruby-yuml.git
+
+  //sudo gem install ruby-yuml
 
 == LICENSE:
 
