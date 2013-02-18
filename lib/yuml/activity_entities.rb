@@ -34,7 +34,7 @@ module YUML
   class Parallel < ActivityEntity #:nodoc:
     def to_s #:nodoc:
       text = YUML.trim(@name.to_s)
-      "|#{text}|"
+      (text.length > 2) ? "[#{text}]" : "|#{text}|"
     end
     
     def [](x) #:nodoc
