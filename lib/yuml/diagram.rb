@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 module YUML
   class Diagram
 
@@ -44,6 +46,10 @@ module YUML
     # Return the yUML URL
     def to_url( type = nil )
       YUML.to_url( @options, self.to_line, type )
+    end
+
+    def md5
+      Digest::MD5.hexdigest(self.to_line)
     end
     
   end
