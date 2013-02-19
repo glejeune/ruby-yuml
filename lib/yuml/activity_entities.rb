@@ -5,6 +5,15 @@ module YUML
       @name = name
       @link_label = ""
     end
+
+    def self.trim(text) #:nodoc:
+      # text.gsub!('-', '‐') # yUML '-' bug
+      text.gsub(/[,()\[\]^><-]/, '').strip unless text.nil?
+    end
+
+    def trim(text) #:nodoc:
+      YUML::ActivityEntity.trim(text)
+    end
     
     # Create a Flow with label
     #
@@ -18,7 +27,7 @@ module YUML
     #
     #   _("Activity One") > _("Activity Two")
     def >(other)
-      text = YUML.trim(@link_label)
+      text = trim(@link_label)
       @uc.link( self, other, "#{text}->" )
       @link_label = ""
     end
@@ -26,14 +35,14 @@ module YUML
   
   class Activity < ActivityEntity #:nodoc:
     def to_s #:nodoc:
-      text = YUML.trim(@name.to_s)
+      text = trim(@name.to_s)
       "(#{text})"
     end
   end
   
   class Parallel < ActivityEntity #:nodoc:
     def to_s #:nodoc:
-      text = YUML.trim(@name.to_s)
+      text = trim(@name.to_s)
       (text.length > 2) ? "[#{text}]" : "|#{text}|"
     end
     
@@ -44,7 +53,7 @@ module YUML
   
   class Decision < ActivityEntity #:nodoc:
     def to_s #:nodoc:
-      text = YUML.trim(@name.to_s)
+      text = trim(@name.to_s)
       "<#{text}>"
     end
   end  

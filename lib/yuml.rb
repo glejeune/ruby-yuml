@@ -65,8 +65,7 @@ module YUML
 
   # TODO: replace with UTF-8 similar chars
   def self.trim(text) #:nodoc:
-    # text.gsub!('-', '‐') # yUML '-' bug
-    text.gsub(/[,()\[\]^><-]/, '').strip unless text.nil?
+    text.gsub(/[,\[\]^]/, '').strip unless text.nil?
   end
 
 end
