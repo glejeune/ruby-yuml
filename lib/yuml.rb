@@ -56,4 +56,16 @@ module YUML
     end
     "http://yuml.me/diagram/#{self.options_string(opts)}#{diagram}/#{data}#{type}"
   end
+
+  # Remove/substitute special characters
+
+  def self.trim!(*args) #:nodoc:
+    args.each { |text| text.replace trim(text) }
+  end
+
+  # TODO: replace with UTF-8 similar chars
+  def self.trim(text) #:nodoc:
+    text.gsub(/[,\[\]^]/, '').strip unless text.nil?
+  end
+
 end
