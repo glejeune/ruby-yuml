@@ -13,4 +13,4 @@ puts "URL :"
 puts x.to_url( )
 
 puts "Image saved as class-diagram.png"
-#x.to_png( "class-diagram.png" )
+x.to_png( "class-diagram.png" )

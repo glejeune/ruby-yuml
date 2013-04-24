@@ -30,8 +30,6 @@ Ruby/yUML is a UML diagrams generator via yuml.me
 
 ==== Example
 
-  # file: sample.rb
-  require 'rubygems'
   require 'yuml'
 
   YUML::useCaseDiagram( :scruffy, :scale => 75 ) {
@@ -61,8 +59,6 @@ http://gregoire.lejeune.free.fr/use-case-diagram.png
 
 ==== Example
 
-  # file: sample.rb
-  require 'rubygems'
   require 'yuml'
 
   YUML::activityDiagram( :scruffy, :scale => 100 ) {
@@ -80,21 +76,27 @@ http://gregoire.lejeune.free.fr/activity-diagram.png
 
 === Class Diagram
 
-  # file: sample.rb
-  # TODO
+==== Syntax Overview
+
+WIP
+
+==== Example
+
+    require 'yuml'
+    
+    x = YUML::classDiagram( :scruffy, :scale => 75 ) {
+      _["Customer"|"Forename;Surname;Email"|"+new();-Save()"] - _[:User]
+      _["Customer"] - note( 'I love this Klass' )
+    }.to_png( "class-diagram.png" )
+
+This example generate this PNG :
+
+http://gregoire.lejeune.free.fr/class-diagram.png
+
 
 == REQUIREMENTS:
 
 * An internet acces ;)
-
-== INSTALL:
-
-Currently gem is not published on ruby-gems, so to install it use  specific_install
-
-  gem install specific_install
-  gem specific_install -l https://github.com/xslim/ruby-yuml.git
-
-  //sudo gem install ruby-yuml
 
 == LICENSE:
 

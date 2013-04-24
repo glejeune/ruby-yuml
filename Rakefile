@@ -1,5 +1,4 @@
 require 'rake/clean'
-# require 'rubygems/package_task'
 require 'rdoc/task'
 require 'rake/testtask'
 
@@ -12,7 +11,7 @@ CLOBBER.include('pkg', 'doc', '**/*.o')
 # task :default => [:package]
 task :default => :spec
 
-task :doc => [:rdoc, :after_doc]
+task :doc => [:rdoc]
 
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'doc/rdoc'
@@ -27,6 +26,3 @@ Rake::RDocTask.new do |rdoc|
   ] + Dir.glob( "lib/yuml/*.rb" )
 end
 
-task :after_doc do
-  sh %{scp -r doc/rdoc/* #{ENV['USER']}@rubyforge.org:/var/www/gforge-projects/ruby-yuml/}
-end

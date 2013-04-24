@@ -33,7 +33,7 @@ module YUML
   class KNote < KlassEntity #:nodoc:
     def to_s #:nodoc:
       text = YUML.trim(@name.to_s)
-      "(note: #{text})"
+      "[note: #{text}]"
     end
   end
 end
