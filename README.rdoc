@@ -7,7 +7,7 @@ Copyright (C) 2009 Gregoire Lejeune
   
 == DESCRIPTION: 
 
-Capcode is a web microframework
+Ruby/yUML is a UML diagrams generator via yuml.me
 
 == FEATURES/PROBLEMS:
 
@@ -89,7 +89,12 @@ http://gregoire.lejeune.free.fr/activity-diagram.png
 
 == INSTALL:
 
-  sudo gem install ruby-yuml
+Currently gem is not published on ruby-gems, so to install it use  specific_install
+
+  gem install specific_install
+  gem specific_install -l https://github.com/xslim/ruby-yuml.git
+
+  //sudo gem install ruby-yuml
 
 == LICENSE:
 

@@ -4,6 +4,15 @@ module YUML
       @uc = uc
       @name = name
     end
+
+    def self.trim(text) #:nodoc:
+      # text.gsub!('-', '‐') # yUML '-' bug
+      text.gsub(/[,()\[\]^><-]/, '').strip unless text.nil?
+    end
+
+    def trim(text) #:nodoc:
+      YUML::UseCaseEntity.trim(text)
+    end
     
     # Create a link 
     #
@@ -36,7 +45,8 @@ module YUML
   
   class Actor < UseCaseEntity #:nodoc:
     def to_s #:nodoc:
-      "[#{@name.to_s}]"
+      text = trim(@name.to_s)
+      "[#{text}]"
     end
     
     def [](x) #:nodoc:
@@ -46,13 +56,15 @@ module YUML
   
   class UseCase < UseCaseEntity #:nodoc:
     def to_s #:nodoc:
-      "(#{@name.to_s})"
+      text = trim(@name.to_s)
+      "(#{text})"
     end
   end
   
   class Note < UseCaseEntity #:nodoc:
     def to_s #:nodoc:
-      "(note: #{@name.to_s})"
+      text = trim(@name.to_s)
+      "(note: #{text})"
     end
   end
 end

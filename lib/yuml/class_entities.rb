@@ -21,7 +21,8 @@ module YUML
   
   class Klass < KlassEntity #:nodoc:
     def to_s #:nodoc:
-      "[#{@name.to_s}]"
+      text = YUML.trim(@name.to_s)
+      "[#{text}]"
     end
     
     def [](name) #:nodoc:
@@ -31,7 +32,8 @@ module YUML
   
   class KNote < KlassEntity #:nodoc:
     def to_s #:nodoc:
-      "(note: #{@name.to_s})"
+      text = YUML.trim(@name.to_s)
+      "(note: #{text})"
     end
   end
 end
